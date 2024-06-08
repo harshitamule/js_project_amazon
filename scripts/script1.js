@@ -1,32 +1,3 @@
-const products = [
-    {
-        name:"Black and Gray Athletic Cotton Socks - 6 Pairs",
-        image: "images/products/athletic-cotton-socks-6-pairs.jpg",
-        ratings: {
-            stars: 4.5,
-            count: 87
-        },
-        price: 1090
-    },
-    {
-        name: "Intermediate Size Basketball",
-        image: "images/products/intermediate-composite-basketball.jpg",
-        ratings: {
-            stars: 4,
-            count: 127
-        },
-        price:2095
-    },
-    {
-        name: "Adults Plain Cotton T-Shirt - 2 Pack",
-        image: "images/products/adults-plain-cotton-tshirt-2-pack-teal.jpg",
-        ratings:{
-            stars:4.5,
-            count: 56
-        },
-        price:799,
-    }
-]
 
 let productHtml= '';
 products.forEach((product) => {
@@ -43,14 +14,14 @@ products.forEach((product) => {
 
         <div class="product-rating-container">
         <img class="product-rating-stars"
-            src="images/ratings/rating-${product.ratings.stars*10}.png">
+            src="images/ratings/rating-${product.rating.stars*10}.png">
         <div class="product-rating-count link-primary">
-            ${product.ratings.count}
+            ${product.rating.count}
         </div>
         </div>
 
         <div class="product-price">
-        $${product.price/100}
+        $${product.priceCents/100}
         </div>
 
         <div class="product-quantity-container">
