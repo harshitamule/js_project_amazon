@@ -5,6 +5,8 @@ import { deliveryOptions, getDeliveryOption } from '../../data/deliveryOptions.j
 //import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 import { renderPaymentSummary } from './paymentSummary.js';
 import dayjs from 'https://unpkg.com/dayjs@1.8.9/esm/index.js';
+import { renderCheckoutHeader } from './checkoutHeader.js';
+
 
 export function renderOrderSummary(){
   let cartSummaryHTML = '';
@@ -164,12 +166,12 @@ export function renderOrderSummary(){
         })
       })
     
-  function updateCartQuantity(){
+function updateCartQuantity(){
     const cartQuantity = calculateCartQuantity();
 
     document.querySelector('.js-update-checkout').innerHTML = `${cartQuantity} items`;
   }
-  updateCartQuantity();
+updateCartQuantity();
 
   document.querySelectorAll('.js-delivery-option')
     .forEach((element)=>{
@@ -178,6 +180,8 @@ export function renderOrderSummary(){
         const deliveryOptionId = element.dataset.deliveryOptionId;
 
         updateDeliveryOption(productId, deliveryOptionId)
+        
+        renderCheckoutHeader();
         renderOrderSummary();
         renderPaymentSummary();
         //render function regenerates the html code and the 
